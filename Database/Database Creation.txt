@@ -70,7 +70,7 @@ Enter Password:
 	Meeting_Title varchar(50) not null,
 	Meeting_Type varchar(50) not null,
 	Booking_Id int not null,
-	Primary Key(Booking_Id),
+	Primary Key(Meeting_Id,Booking_Id),
 	Foreign Key(Booking_Id) references Booking_Info(Booking_Id)
 );
 
