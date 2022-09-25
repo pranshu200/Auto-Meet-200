@@ -1,76 +1,95 @@
-#Enter user details that you are gona use.
-1. mysql -u root -p
-Enter Password: 
-
-#Create a database for the project with name AutoMeet200.
-2. create database AutoMeet200;
-
-#Switch to AutoMeet200 Database.
-3. use AutoMeet200;
+connect 'jdbc:derby://localhost:1527/RoomBooking2;create=true';
 
 
-#Create the following Tables.
--> User_Table
->create table User_Table(
-	User_Id int Primary Key check(user_Id>0), 
-	User_Name varchar(50) not null, 
-	User_Email varchar(100) not null,
-	User_Phone varchar(10) not null default 0, 
-	User_Role Varchar(30) not null, 
-	User_Credit int not null default 0 check(User_Credit<2001)
+create table User_Table(
+	User_Id int primary key check(User_Id>0),
+	user_Name varchar(30) not null,
+	User_email varchar(35) not null,
+	User_phone varchar(10) not null,
+	user_role varchar(10) not null,
+	User_credit INT not null default 0 check(User_credit<2001),
+	lastLoggedIn varchar(30) not null,
 );
 
-->Meeting_Room
->create table Meeting_Room(
-	Room_Id int primary key,
-	Room_Name varchar(50) not null unique,
-	Room_Capacity int not null check(Room_Capacity>0),
-	Room_Cost int not null,
-	Room_Rating int not null
+
+create table Meeting_Room(
+	Room_Name varchar(20) primary key,
+	Room_Capacity INT not null check(Room_Capacity>0),
+	Room_ratings float not null,
+	Room_No_Of_Ratings INT not null,
+	Room_Cost INT not null,
 );
 
-->Room_Amenities
->create table Room_Amenities(
-	Room_Id int not null, 
-	Amenity varchar(30) not null
+create table Room_Types(
+
+	Room_Name varchar(20) not null,
+	Room_Type varchar(30) not null,
+
+	primary key(Room_Name, Room_Type),
+	foreign key(Room_Name) references Meeting_Room(Room_Name)
 );
 
-->Room_Type
->create table Room_Type(
-	Room_Id int not null,
-	Room_Type varchar(50) not null,
-	primary key(Room_Id,Room_Type),
-	foreign key(Room_Id) references Meeting_Room(Room_Id)
+
+create table Room_Amenities(
+
+	Room_Name varchar(20) not null,
+	Room_Amenity varchar(30) not null,
+
+	primary key(Room_Name, Room_Amenity),
+	foreign key(Room_Name) references Meeting_Room(Room_Name)
 );
 
-->Booking_Info
->create table Booking_Info(
-	Booking_Id int primary key,
-	Room_Id int not null,
-	User_Id int not null,
-	Booking_Date date not null,
-	Start_Time time not null,
-	End_Time time not null,
-	foreign key(Room_Id) references Meeting_Room(Room_Id),
-	foreign key(User_Id) references User_Table(User_Id)
-); 
 
-->Room_Members
->create table Room_Members(
-	Room_Id int not null,
-	User_Id int not null,
-	primary key(Room_Id, User_Id),
-	foreign key(Room_Id) references Meeting_Room(Room_Id),
-	foreign key(User_Id) references User_Table(User_Id)
+create table Booking_Info(
+
+	Booking_Id INT Primary Key check(Booking_Id>0),
+	Room_Name varchar(20) not null,
+	User_Id INT not null,
+	Booking_Date DATE not null,
+	Start_Time TIME not null,
+	End_Time TIME not null,
+	isRated varchar(5) not null,
+	foreign key(Room_Name) references Meeting_Room(Room_Name),
+	foreign key(User_Id) references User_Table(User_Id) 
 );
- 
-->Meeting
->create table Meeting(
-	Meeting_Id int not null,
-	Meeting_Title varchar(50) not null,
-	Meeting_Type varchar(50) not null,
-	Booking_Id int not null,
-	Primary Key(Meeting_Id,Booking_Id),
-	Foreign Key(Booking_Id) references Booking_Info(Booking_Id)
+
+
+create table Meeting (
+
+	Booking_Id INT not null unique,
+	Booking_Title varchar(30) Primary key,
+	Meeting_Type varchar(30) not null,
+	meeting_Info varchar(100) not null,
+	foreign key(Booking_Id) references Booking_Info(booking_Id)
 );
+
+
+create table Attend(
+
+	booking_Id INT not null,sss
+	User_Id INT not null,
+
+	primary key(booking_Id, user_Id),
+	foreign key(booking_Id) references Meeting(booking_Id) ,
+	foreign key(user_Id) references User_Table(user_Id)
+);
+
+
+create table util(count int, current_year int);
+
+insert into util values(101, 2020);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
