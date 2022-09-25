@@ -20,7 +20,7 @@ public class DatabaseConnection {
 		try {
 
 			Class.forName("org.apache.derby.jdbc.ClientDriver");
-			conn = DriverManager.getConnection("jdbc:derby://localhost:1527/RoomBooking2");
+			conn = DriverManager.getConnection("jdbc:derby://localhost:1527/AutoMeet200/Database/mydb");
 
 		}
 
