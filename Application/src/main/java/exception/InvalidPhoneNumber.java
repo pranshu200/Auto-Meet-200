@@ -3,8 +3,6 @@
  */
 package exception;
 
-import java.util.logging.Logger;
-
 /**
  * @author The Web Spyder
  *
