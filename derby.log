@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sun Sep 25 19:19:15 IST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-0183-74e8-c375-000006c87bb8 
+on database directory C:\PRANSHU\PROJECTS\The Web Spyder\Auto-Meet-200\Database\mydb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
+Loaded from file:/C:/PRANSHU/PROJECTS/Training/db-derby-10.16.1.1-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=18.0.2.1+1-1
+user.dir=C:\PRANSHU\PROJECTS\The Web Spyder\Auto-Meet-200
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
