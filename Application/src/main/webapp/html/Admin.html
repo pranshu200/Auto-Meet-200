@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            border: none;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        
+        .container {
+            margin-left: 20px;
+            width: 60%;
+        }
+        
+        .container1 {
+            border: #04AA6D;
+            margin-left: 1000px;
+            width: 20%;
+            border: #04AA6D;
+        }
+        
+        #createRoom {
+            width: 250px;
+            height: 50px;
+            padding: 10px 10px 20px 10px;
+            background-color: #04AA6D;
+            color: white;
+            font-size: medium;
+            border-radius: 20px;
+            border: white;
+        }
+    </style>
+</head>
+
+<body style="background-color:aquamarine;">
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-theme-d2 w3-left-align ">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+            <a href="index.html" class="w3-bar-item w3-hide-small w3-hover-white"><img src="images/homelogo.png" alt="logo" style="width:50px;"></a>
+            <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
+            <a href="ImportUsers.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Import User</a>
+            <a href="Admin.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Meeting Room</a>
+            <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
+            <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Logout</a>
+        </div>
+    </div>
+<br><br><br><br>
+    <center>
+        <h1>Admin</h1>
+    </center>
+    <div class="card" style="margin-left: 1000px; margin-right: 50px; margin-top: 15px; height: 130px; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 12px;">
+        <div class="card-body" style=" width:400px">
+            <p class="card-text">
+                Name : The Web Spyder
+            </p>
+            <p class="card-text">
+                Email ID : sample@gmail.com
+            </p>
+            <p class="card-text">
+                Last logged in : 25-09-2022
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <center>
+            <h3>List of meetings</h3>
+        </center>
+        <br>
+        <table>
+            <tr style="background-color: #04AA6D;color: white;">
+                <td></td>
+                <td class="grey">Room Name</td>
+                <td class="grey">Capacity</td>
+            </tr>
+            <tr>
+                <td><a href="EditRoom.html">1)</a></td>
+                <td class="grey">Room No 1</td>
+                <td class="grey">20</td>
+            </tr>
+
+        </table>
+    </div>
+    <br><br>
+    <div class="container1">
+        <button id="createRoom" type="submit"><a style="text-decoration: none" href="CreateRoom.html" class="">Create
+                Room</a></button>
+
+    </div>
+
+</body>
+
+</html>
