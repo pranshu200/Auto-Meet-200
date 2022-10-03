@@ -97,6 +97,10 @@ a {
 				<a href="CreateRoom.jsp"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Create
 				Room</a>
+				<a href="DeleteRoom.jsp"
+				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Delete Room</a>
+				<a href="AddMember.jsp"
+				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Member</a>
 				 <a href="logoutServlet.do"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Logout</a> <a href="#contact"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
@@ -110,45 +114,8 @@ a {
 	<br>
 	<br>
 	<%
-		Users user=(Users) request.getAttribute("userinfo");
-		List<MeetingSubmit> meetinglist =(List<MeetingSubmit>) request.getAttribute("meetingInfo");
+		List<MeetingSubmit> meetinglist =(List<MeetingSubmit>) request.getAttribute("meetingDetails");
 	%>
-	
-		<div style="border:5px out; height: 200px; width: 300px; padding: 10px;">
-			<table style="margin-top: 50px; text-align: center; ">
-				<tr>
-				<th colspan=2 style="background-color:	bisque;"><b>USER INFO</b></th>
-				</tr>
-				<tr>
-					<th style="background-color:orange;"><b>User ID</b></th>
-					<%out.println("<td>"+user.getUserId()+"</td>"); %>
-				</tr>
-				<tr>
-					<th  style="background-color:orange;"><b>User Name</b></th>
-					<%out.println("<td>"+user.getUserName()+"</td>");%>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Email</b></th>
-					<%out.println("<td>"+user.getEmail()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Phone</b></th>
-					<%out.println("<td>"+user.getPhone()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Role</b></th>
-					<%out.println("<td>"+user.getRole()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Credit</b></th>
-					<%out.println("<td>"+user.getCredit()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Last Login</b></th>
-					<%out.println("<td>"+user.getLastLoggedIn()+"</td>"); %>
-				</tr>
-			</table>
-		</div>
 		<br><br><br>
 		<div style="border:5px out; text-align:center;">
 			<div style="text-align: center;">
@@ -167,6 +134,7 @@ a {
 					<th><b>Credit</b></th>
 					<th><b>Title</b></th>
 					<th><b>Type</b></th>
+					<th><b>Members</b></th>
 				</tr>
 				<%
 				for(MeetingSubmit m:meetinglist)
@@ -180,6 +148,7 @@ a {
 					out.println("<td>"+m.getCredit()+"</td>");
 					out.println("<td>"+m.getTitle()+"</td>");
 					out.println("<td>"+m.getMeetingType()+"</td>");
+					out.println("<td>"+m.getUserList()+"</td>");
 					out.println("</tr>");
 				}	
 				%>

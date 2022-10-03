@@ -1,4 +1,4 @@
-connect 'jdbc:derby://localhost:1527/RoomBooking2;create=true';
+ connect 'jdbc:derby://localhost:1527/AutoMeetdb;create=true';
 
 
 create table User_Table(
@@ -8,7 +8,7 @@ create table User_Table(
 	User_phone varchar(10) not null,
 	user_role varchar(10) not null,
 	User_credit INT not null default 0 check(User_credit<2001),
-	lastLoggedIn varchar(30) not null,
+	lastLoggedIn varchar(30) not null
 );
 
 
@@ -17,14 +17,13 @@ create table Meeting_Room(
 	Room_Capacity INT not null check(Room_Capacity>0),
 	Room_ratings float not null,
 	Room_No_Of_Ratings INT not null,
-	Room_Cost INT not null,
+	Room_Cost INT not null
 );
 
 create table Room_Types(
 
 	Room_Name varchar(20) not null,
 	Room_Type varchar(30) not null,
-
 	primary key(Room_Name, Room_Type),
 	foreign key(Room_Name) references Meeting_Room(Room_Name)
 );
@@ -34,7 +33,6 @@ create table Room_Amenities(
 
 	Room_Name varchar(20) not null,
 	Room_Amenity varchar(30) not null,
-
 	primary key(Room_Name, Room_Amenity),
 	foreign key(Room_Name) references Meeting_Room(Room_Name)
 );
@@ -65,10 +63,8 @@ create table Meeting (
 
 
 create table Attend(
-
-	booking_Id INT not null,sss
+	booking_Id INT not null,
 	User_Id INT not null,
-
 	primary key(booking_Id, user_Id),
 	foreign key(booking_Id) references Meeting(booking_Id) ,
 	foreign key(user_Id) references User_Table(user_Id)

@@ -14,6 +14,7 @@
 	href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="js/createRoom.js"></script>
 <style>
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -94,9 +95,6 @@ a {
 			<a href="MeetingRooms.jsp"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Meeting
 				Room</a>
-				<a href="CreateRoom.jsp"
-				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Create
-				Room</a>
 				 <a href="logoutServlet.do"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Logout</a> <a href="#contact"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
@@ -108,85 +106,54 @@ a {
 	</div>
 
 	<br>
-	<br>
-	<%
-		Users user=(Users) request.getAttribute("userinfo");
-		List<MeetingSubmit> meetinglist =(List<MeetingSubmit>) request.getAttribute("meetingInfo");
-	%>
-	
-		<div style="border:5px out; height: 200px; width: 300px; padding: 10px;">
-			<table style="margin-top: 50px; text-align: center; ">
-				<tr>
-				<th colspan=2 style="background-color:	bisque;"><b>USER INFO</b></th>
-				</tr>
-				<tr>
-					<th style="background-color:orange;"><b>User ID</b></th>
-					<%out.println("<td>"+user.getUserId()+"</td>"); %>
-				</tr>
-				<tr>
-					<th  style="background-color:orange;"><b>User Name</b></th>
-					<%out.println("<td>"+user.getUserName()+"</td>");%>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Email</b></th>
-					<%out.println("<td>"+user.getEmail()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Phone</b></th>
-					<%out.println("<td>"+user.getPhone()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Role</b></th>
-					<%out.println("<td>"+user.getRole()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Credit</b></th>
-					<%out.println("<td>"+user.getCredit()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Last Login</b></th>
-					<%out.println("<td>"+user.getLastLoggedIn()+"</td>"); %>
-				</tr>
-			</table>
-		</div>
-		<br><br><br>
-		<div style="border:5px out; text-align:center;">
-			<div style="text-align: center;">
-					<h1>
-						<b>Meeting Information</b>
-					</h1>
-			</div>
-			<center>
-			<table border="1" style="position: center">
-				<tr style="background-color: #04AA6D;">
-					<th><b>Room Name</b></th>
-					<th><b>User Id</b></th>
-					<th><b>Date</b></th>
-					<th><b>Start Time</b></th>
-					<th><b>End Time</b></th>
-					<th><b>Credit</b></th>
-					<th><b>Title</b></th>
-					<th><b>Type</b></th>
-				</tr>
-				<%
-				for(MeetingSubmit m:meetinglist)
-				{
-					out.println("<tr>");
-					out.println("<td>"+m.getRoomName()+"</td>");
-					out.println("<td>"+m.getUserId()+"</td>");
-					out.println("<td>"+m.getDate()+"</td>");
-					out.println("<td>"+m.getStartTime()+"</td>");
-					out.println("<td>"+m.getEndTime()+"</td>");
-					out.println("<td>"+m.getCredit()+"</td>");
-					out.println("<td>"+m.getTitle()+"</td>");
-					out.println("<td>"+m.getMeetingType()+"</td>");
-					out.println("</tr>");
-				}	
-				%>
-			</table>
-			</center>
-		</div> 
-	<br>
+<center>
+<div style=" height: 700px;width: 700px;"> 
+<form id="frm" action="CreateRoom.do" method="post">
+  <div class="container">
+    <h1>CREATE ROOM </h1>
+    <p>Please fill in this form to Create Room</p>
+    <hr>
+    
+    <table>
+    <tr>
+    <td><label for="roomName"><b>Room Name</b></td>
+    <td><input type="text" placeholder="Enter Room Name" name="roomName" id="roomName" required></label></td>
+    </tr>
+	 <tr>
+    <td><label for="userId"><b>User ID</b></td>
+    <td><input type="text" placeholder="Enter User ID" name="userId" id="userId" required></label></td>
+	</tr>
+	 <tr>
+	<td><label for="date"><b>Date</b></td>
+    <td><input type="text" placeholder="DD/MM/YYYY" name="date" id="date" required></label></td>
+    </tr>
+     <tr>
+    <td><label for="startTime"><b>Start Time</b></td>
+    <td><input type="text" placeholder="00:00:00" name="startTime" id="startTime" required></label></td>
+	</tr>
+	  <tr>
+    <td><label for="endTime"><b>End Time</b></td>
+    <td><input type="text" placeholder="00:00:00" name="endTime" id="endTime" required></label></td>
+	</tr>
+	  <tr>
+    <td><label for="credit"><b>Credit</b></td>
+    <td><input type="text" placeholder="00" name="credit" id="credit" required></label></td>
+	</tr>
+	  <tr>
+    <td><label for="title"><b>Title</b></td>
+    <td><input type="text" placeholder="eg. Game Room" name="title" id="title" required></label></td>
+	</tr>
+	  <tr>
+    <td><label for="type"><b>Type</b></td>
+    <td><input type="text" placeholder="ex. Gaming" name="type" id="type" required></label></td>
+	</tr>
+	</table>
+    <button type="submit" class="registerbtn" onclick="createRoom()">Create Room</button>
+  </div>
+</form>
+</div>
+</center>
+<br><br><br><br><br>
 	<br>
 	<br>
 	<br>

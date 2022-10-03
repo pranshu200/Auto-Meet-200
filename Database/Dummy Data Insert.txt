@@ -1,14 +1,6 @@
-insert into users(userId,userName,email,phone,role,credit,lastLoggedIn)
-values(2019101,'meghna','meghna@gmail.com','9416666687','Member',0,'2020-10-01 00:00:01');
-
-insert into users(userId,userName,email,phone,role,lastLoggedIn)
-values(2019102,'vigna','vigna@gmail.com','9334453198','Admin','2020-10-01 00:00:20');
-
-insert into users(userId,userName,email,phone,role,lastLoggedIn)
-values(2019103,'namrata','namrata@gmail.com','9493843157','Member','2020-10-01 13:00:00');
-
-insert into users(userId,userName,email,phone,role,credit,lastLoggedIn)
-values(2019104,'likita','likita@gmail.com','9418822457','Manager',1850,'2020-10-02 08:00:00');
+insert into user_table values(101,'pranshu','pran@gmail.com','9416666687','Admin',0,'2020-10-01 00:00:01');
+insert into user_table values(1001,'piyush','piyu@gmail.com','9416666697','Manager',0,'2020-10-01 00:00:01');
+insert into user_table values(10001,'likitha','liki@gmail.com','9415566687','Member',0,'2020-10-01 00:00:01');
 
 
 insert into MeetingRoom values('01-101',10,4.0,25,35);

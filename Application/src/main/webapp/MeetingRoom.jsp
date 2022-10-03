@@ -1,6 +1,4 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
-<%@page import="model.MeetingSubmit"%>
-<%@page import="model.Users"%>
+<%@page import="model.MeetingRoom"%>
 <%@page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -91,14 +89,11 @@ a {
 				src="images/homelogo.png" alt="logo" style="width: 50px;"></a> <a
 				href="index.html"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
-			<a href="MeetingRooms.jsp"
+			<a href="MeetingRooms.html"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Meeting
-				Room</a>
-				<a href="CreateRoom.jsp"
-				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Create
-				Room</a>
-				 <a href="logoutServlet.do"
-				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Logout</a> <a href="#contact"
+				Room</a> <a href="signUp.jsp"
+				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Sign
+				Up</a> <a href="#contact"
 				class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
 		</div>
 		<div id="navDemo"
@@ -109,88 +104,47 @@ a {
 
 	<br>
 	<br>
+	<hr>
+	<br>
+	<br>
 	<%
-		Users user=(Users) request.getAttribute("userinfo");
-		List<MeetingSubmit> meetinglist =(List<MeetingSubmit>) request.getAttribute("meetingInfo");
+		List<MeetingRoom> roomlist=(List<MeetingRoom>) request.getAttribute("roomlist");
 	%>
-	
-		<div style="border:5px out; height: 200px; width: 300px; padding: 10px;">
-			<table style="margin-top: 50px; text-align: center; ">
-				<tr>
-				<th colspan=2 style="background-color:	bisque;"><b>USER INFO</b></th>
-				</tr>
-				<tr>
-					<th style="background-color:orange;"><b>User ID</b></th>
-					<%out.println("<td>"+user.getUserId()+"</td>"); %>
-				</tr>
-				<tr>
-					<th  style="background-color:orange;"><b>User Name</b></th>
-					<%out.println("<td>"+user.getUserName()+"</td>");%>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Email</b></th>
-					<%out.println("<td>"+user.getEmail()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Phone</b></th>
-					<%out.println("<td>"+user.getPhone()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Role</b></th>
-					<%out.println("<td>"+user.getRole()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Credit</b></th>
-					<%out.println("<td>"+user.getCredit()+"</td>"); %>
-				</tr>	
-				<tr>
-					<th  style="background-color:orange;"><b>Last Login</b></th>
-					<%out.println("<td>"+user.getLastLoggedIn()+"</td>"); %>
-				</tr>
-			</table>
-		</div>
-		<br><br><br>
-		<div style="border:5px out; text-align:center;">
-			<div style="text-align: center;">
+	<center>
+		<div style="height: 700px; width: 500px;">
+			<div>
+				<center>
 					<h1>
-						<b>Meeting Information</b>
+						<b>MEETING ROOMS</b>
 					</h1>
+				</center>
 			</div>
-			<center>
-			<table border="1" style="position: center">
+			<table border="1" style="position: center; background-color: baige">
 				<tr style="background-color: #04AA6D;">
 					<th><b>Room Name</b></th>
-					<th><b>User Id</b></th>
-					<th><b>Date</b></th>
-					<th><b>Start Time</b></th>
-					<th><b>End Time</b></th>
-					<th><b>Credit</b></th>
-					<th><b>Title</b></th>
-					<th><b>Type</b></th>
+					<th><b>Seating capacity</b></th>
+					<th><b>Cost</b></th>
+					<th><b>Ratings</b></th>
+					<th><b>No. of Ratings</b></th>
 				</tr>
 				<%
-				for(MeetingSubmit m:meetinglist)
-				{
-					out.println("<tr>");
-					out.println("<td>"+m.getRoomName()+"</td>");
-					out.println("<td>"+m.getUserId()+"</td>");
-					out.println("<td>"+m.getDate()+"</td>");
-					out.println("<td>"+m.getStartTime()+"</td>");
-					out.println("<td>"+m.getEndTime()+"</td>");
-					out.println("<td>"+m.getCredit()+"</td>");
-					out.println("<td>"+m.getTitle()+"</td>");
-					out.println("<td>"+m.getMeetingType()+"</td>");
-					out.println("</tr>");
-				}	
+					for(MeetingRoom m:roomlist)
+					{
+						out.println("<tr>");
+						out.println("<td>"+m.getRoomName()+"</td>");
+						out.println("<td>"+m.getCapacity()+"</td>");
+						out.println("<td>"+m.getPerHourCost()+"</td>");
+						out.println("<td>"+m.getRating()+"</td>");
+						out.println("<td>"+m.getNoOfRating()+"</td>");
+						out.println("</tr>");
+					}	
 				%>
 			</table>
-			</center>
-		</div> 
+		</div>
+	</center>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br> 
+<hr>
+<br>
 	<div>
 		<footer style="bottom: 0;">
 			<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">

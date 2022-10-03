@@ -13,20 +13,19 @@ public class MeetingSubmit {
 	private String roomName;
 	private int userId;
 	private String date;
-	private Time startTime;
-	private Time endTime;
+	private String startTime;
+	private String endTime;
 	private int credit;
 	private String title;
 	private String meetingType;
-	private String meetingInfo;
 	private List<Integer> userList;
 
 	public MeetingSubmit() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MeetingSubmit(String roomName, int userId, String date, Time startTime, Time endTime, int credit,
-			String title, String meetingType, String meetingInfo, List<Integer> userList) {
+	public MeetingSubmit(String roomName, int userId, String date, String startTime, String endTime, int credit,
+			String title, String meetingType) {
 		super();
 		this.roomName = roomName;
 		this.userId = userId;
@@ -36,7 +35,19 @@ public class MeetingSubmit {
 		this.credit = credit;
 		this.title = title;
 		this.meetingType = meetingType;
-		this.meetingInfo = meetingInfo;
+	}
+
+	public MeetingSubmit(String roomName, int userId, String date, String startTime, String endTime, int credit,
+			String title, String meetingType, List<Integer> userList) {
+		super();
+		this.roomName = roomName;
+		this.userId = userId;
+		this.date = date;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.credit = credit;
+		this.title = title;
+		this.meetingType = meetingType;
 		this.userList = userList;
 	}
 
@@ -64,19 +75,19 @@ public class MeetingSubmit {
 		this.date = date;
 	}
 
-	public Time getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Time startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
-	public Time getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Time endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 
@@ -104,14 +115,6 @@ public class MeetingSubmit {
 		this.meetingType = meetingType;
 	}
 
-	public String getMeetingInfo() {
-		return meetingInfo;
-	}
-
-	public void setMeetingInfo(String meetingInfo) {
-		this.meetingInfo = meetingInfo;
-	}
-
 	public List<Integer> getUserList() {
 		return userList;
 	}
@@ -119,5 +122,13 @@ public class MeetingSubmit {
 	public void setUserList(List<Integer> userList) {
 		this.userList = userList;
 	}
+
+	@Override
+	public String toString() {
+		return "MeetingSubmit [roomName=" + roomName + ", userId=" + userId + ", date=" + date + ", startTime="
+				+ startTime + ", endTime=" + endTime + ", credit=" + credit + ", title=" + title + ", meetingType="
+				+ meetingType + ", userList=" + userList + "]";
+	}
+
 
 }
